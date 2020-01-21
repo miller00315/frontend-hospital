@@ -1,0 +1,11 @@
+export const FETCH_DATA = 'fetch_patient_list';
+export const FETCH_DATA_SUCCESS = 'fetch_patient_list_success';
+export const FETCH_DATA_FAILED = 'fetch_patient_list_failed';
+export const SET_PROTOCOL = 'set_procol_patient_list';
+export const HIDE_MODAL = 'hide_modal_patient_list';
+export const FETCH_PROTOCOLS = 'fetch_protocols_patient_list';
+export const FETCH_PROTOCOLS_SUCCESS = 'fetch_protocols_patient_list_success';
+export const FETCH_PROTOCOLS_FAILED = 'fetch_protocols_patient_list_failed';
+export const SELECT_PATIENT = 'select_patient_patient_list';
+export const CHANGE_SEARCH_TEXT = 'change_search_text';
+export const SEARCH_PATIENT_SUCCESS = 'search_patient_success';

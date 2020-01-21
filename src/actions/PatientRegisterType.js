@@ -1,0 +1,13 @@
+export const REGISTER_PATIENT = 'register_patient';
+export const REGISTER_PATIENT_SUCCESS = 'register_patient_success';
+export const REGISTER_PATIENT_FAILED = 'register_patient_failed';
+export const FETCH_CITY = 'fetch_city_patient';
+export const FETCH_STATE = 'fetch_state_patient';
+export const FETCH_GENRE = 'getch_genre_patient';
+export const FETCH_CITY_SUCCESS = 'fetch_city_success_patient';
+export const FETCH_STATE_SUCCESS = 'fetch_state_success_patient';
+export const FETCH_GENRE_SUCCESS = 'fetch_genre_patient_success';
+export const FETCH_CITY_FAILED = 'fetch_city_failed_patient';
+export const FETCH_STATE_FAILED = 'fetch_state_failed_patient';
+export const HIDE_MODAL = 'hide_modal_patient';
+export const SELECT_PROTOCOL = 'select_protocol_patient';
