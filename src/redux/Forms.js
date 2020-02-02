@@ -1,25 +1,15 @@
 export const patient = {
-  id: '',
-  name: '',
-  surname: '',
-  register: '',
-  birth_date: '',
-  genre: '',
-  document: '',
-  contact: {
-    responsible: '',
-    phone: '',
-    email: '',
-  },
+  name: String,
+  surname: String,
+  protocol_number: String,
+  genre: String,
+  birth_date: String,
+  observation: String,
+  register: String,
   address: {
-    city: '',
-    state: '',
-    street: '',
-    location: '',
-    complement: '',
-    number: '',
+    city: String,
+    state: String,
   },
-  observation: '',
 };
 
 export const actuationTime = {
@@ -163,23 +153,15 @@ export const hpp = {
   cid: '',
 };
 
-export const user = {
+export const professional = {
   name: '',
-  nickname: '',
   surname: '',
-  genre: '',
-  address: {
-    city: '',
-    state: '',
-  },
   email: '',
-  phone: '',
   password: '',
-  type: '',
-  id: '',
+  type: 'common',
 };
 
 export const login = {
-  nickname: '',
+  email: '',
   password: '',
 };

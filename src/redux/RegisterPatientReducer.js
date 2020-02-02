@@ -1,6 +1,7 @@
 import * as ACTIONS from '../actions/PatientRegisterType';
 
 const INITIAL_STATE = {
+  user: null,
   protocol: null,
   loadingRegisterPatient: false,
   showModal: false,
@@ -13,6 +14,8 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case ACTIONS.SET_USER:
+      return { ...state, user: action.payload };
     case ACTIONS.FETCH_CITY_SUCCESS:
       return { ...state, cities: action.payload };
     case ACTIONS.FETCH_STATE_SUCCESS:

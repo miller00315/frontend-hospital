@@ -10,11 +10,11 @@ const renderForm = props => (
     <div className="row">
       <div className="col-12">
         <ControlTextInput
-          id="nickname"
-          model=".nickname"
+          id="email"
+          model=".email"
           label="Usuário"
-          type="nickname"
-          placeholder="Seu nome de usuário"
+          type="email"
+          placeholder="Insira seu email"
         />
         <ControlTextInput
           id="password"

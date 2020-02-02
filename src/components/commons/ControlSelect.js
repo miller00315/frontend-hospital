@@ -3,8 +3,8 @@ import { Control, Errors } from 'react-redux-form';
 import { Label } from 'reactstrap';
 
 const renderOption = item => (
-  <option key={item.id} value={item.value}>
-    {item.label}
+  <option key={item._id} value={item.code}>
+    {item.title}
   </option>
 );
 
@@ -20,7 +20,6 @@ export default props => (
         model={props.model}
         id={props.id}
         name={props.id}
-        type={props.id}
         className="form-control"
         onChange={props.onChange ? props.onChange : null}
       >

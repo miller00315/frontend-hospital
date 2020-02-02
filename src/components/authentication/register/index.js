@@ -2,19 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Form, Control } from 'react-redux-form';
 import * as REGISTER_ACTIONS from '../../../actions/ResgisterActions';
-import ControlSelect from '../../commons/ControlSelect';
 import ControlTextInput from '../../commons/ControlTextInput';
 import { Header, Layout, Content, Navigation } from 'react-mdl';
 import { Link, withRouter } from 'react-router-dom';
 
 class Register extends Component {
-  componentDidMount() {
-    this.props.fetchData();
-  }
-
   renderForm = () => (
     <Form
-      model="user"
+      model="professional"
       onSubmit={values => this.props.doRegister(this.props.history, values)}
     >
       <div className="row border-div">
@@ -35,28 +30,10 @@ class Register extends Component {
             placeholder="Insira aqui todo o seu sobrenome"
           />
           <ControlTextInput
-            id="nickname"
-            model=".nickname"
-            label="Nome de usuário"
-            placeholder="Insira aqui o seu usuário"
-          />
-          <ControlTextInput
             id="email"
             model=".email"
             label="Email"
             placeholder="Insira aqui o seu email"
-          />
-          <ControlTextInput
-            id="phone"
-            model=".phone"
-            label="Telefone"
-            placeholder="Insira aqui o seu telefone"
-          />
-          <ControlSelect
-            model=".type"
-            id="type"
-            label="Tipo de usuário"
-            options={this.props.types}
           />
           <ControlTextInput
             id="password"
@@ -64,26 +41,6 @@ class Register extends Component {
             label="Senha"
             type="password"
             placeholder="Pelo menos 6 caracteres"
-          />
-        </div>
-      </div>
-
-      <div className="row border-div">
-        <div className="col-12">
-          <h5>Endereço</h5>
-        </div>
-        <div className="col-12">
-          <ControlSelect
-            model=".address.state"
-            id="address.state"
-            label="Estado"
-            options={this.props.states}
-          />
-          <ControlSelect
-            model=".address.city"
-            id="address.city"
-            label="Cidade"
-            options={this.props.cities}
           />
         </div>
       </div>

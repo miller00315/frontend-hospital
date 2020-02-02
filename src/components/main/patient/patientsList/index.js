@@ -12,7 +12,7 @@ import {
   Navigation,
   Button,
 } from 'react-mdl';
-import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 import * as DISPATCHES from '../../../../actions/PatientListActions';
 import SelectProtocolModal from '../../../modals/SelectProtocolModal';
@@ -29,7 +29,7 @@ class PatientList extends Component {
 
   _renderUsers = items => {
     return items.map(item => (
-      <div key={item.id} className="col-lg-4 col-sm-12">
+      <div key={item._id} className="col-lg-4 col-sm-12">
         <Card
           shadow={0}
           style={{
@@ -45,9 +45,9 @@ class PatientList extends Component {
           <CardText
             style={{ color: '#fff' }}
           >{`Registro: ${item.register}`}</CardText>
-          <CardText
-            style={{ color: '#fff' }}
-          >{`Data entrada: ${item.register_date}`}</CardText>
+          <CardText style={{ color: '#fff' }}>{`Data entrada: ${moment(
+            item.register_date
+          ).format('L')}`}</CardText>
           <CardText
             style={{ color: '#fff' }}
           >{`Cidade: ${item.address.city}`}</CardText>
@@ -72,7 +72,7 @@ class PatientList extends Component {
                   )
                 }
               >
-                <b>{`Protocolo ${this.props.protocol.protocol}`}</b>
+                <b>{`Protocolo ${this.props.protocol.title}`}</b>
               </Button>
             ) : (
               <Button
@@ -102,7 +102,12 @@ class PatientList extends Component {
         <SelectProtocolModal />
         <Header title={<h5>Pacientes</h5>}>
           <Navigation>
-            <Link to="/main">Principal</Link>
+            <button
+              className="button transparent"
+              onClick={() => this.props.history.goBack()}
+            >
+              Principal
+            </button>
           </Navigation>
         </Header>
         <Content>

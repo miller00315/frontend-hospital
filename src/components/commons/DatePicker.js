@@ -7,7 +7,7 @@ import MaskedTextInput from 'react-text-mask';
 export default props => {
   registerLocale('pt-br', pt);
 
-  return (
+  return false; /*(
     <DatePicker
       selected={props.value}
       locale="pt-br"
@@ -21,5 +21,5 @@ export default props => {
         />
       }
     />
-  );
+  ); */
 };

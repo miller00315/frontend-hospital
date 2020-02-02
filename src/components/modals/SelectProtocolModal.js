@@ -8,7 +8,7 @@ import { hideModal, goToScreen } from '../../actions/PatientListActions';
 const renderProtocols = props =>
   props.protocols.map(item => (
     <ListGroup.Item
-      key={item.id}
+      key={item._id}
       action
       onClick={() =>
         props.goToScreen(props.history, '/medical_records', item, props.patient)

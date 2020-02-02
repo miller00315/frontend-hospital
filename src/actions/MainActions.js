@@ -1,13 +1,32 @@
 import * as ACTIONS from './MainTypes';
-import { protocolsList } from '../bd';
-import _ from 'lodash';
+import axios from 'axios';
+import localStorage from 'local-storage';
 
 export const fetchData = () => {
   return dispatch => {
-    dispatch({
-      type: ACTIONS.FETCH_DATA_SUCCESS,
-      payload: _.map(protocolsList),
-    });
+    const user = localStorage.get('medicalProtocols');
+
+    dispatch({ type: ACTIONS.SET_USER, payload: user });
+
+    axios
+      .get('http://localhost:3001/api/protocols', {
+        headers: {
+          Authorization: user.token,
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(res => {
+        if (res.status === 200) {
+          const { result } = res.data;
+          dispatch({
+            type: ACTIONS.FETCH_DATA_SUCCESS,
+            payload: result,
+          });
+        }
+      })
+      .catch(e =>
+        dispatch({ type: ACTIONS.FETCH_DATA_FAILED, payload: e.message })
+      );
   };
 };
 
@@ -23,6 +42,7 @@ export const goToScreen = (history, screen, protocol) => {
 
 export const selectProtocol = protocol => {
   return dispatch => {
+    console.log(protocol);
     dispatch({ type: ACTIONS.SELECT_PROTOCOL, payload: protocol });
   };
 };
@@ -36,11 +56,10 @@ export const changeTextSearch = event => {
 };
 
 const searchOnList = (value, dispatch) => {
-  let items = _.map(protocolsList).filter(item => {
-    return `${item.protocol}`.toLowerCase().search(value.toLowerCase()) !== -1;
-  });
-
-  dispatch({ type: ACTIONS.SET_RESULTS, payload: items });
+  // let items = _.map(protocolsList).filter(item => {
+  //   return `${item.protocol}`.toLowerCase().search(value.toLowerCase()) !== -1;
+  // });
+  // dispatch({ type: ACTIONS.SET_RESULTS, payload: items });
 };
 
 export const hideModal = () => ({ type: ACTIONS.HIDE_MODAL });

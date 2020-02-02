@@ -35,6 +35,16 @@
   margin-top: 2rem;
 }
 
+.buttonHeader {
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  font-size: 14px;
+  justify-self: center;
+}
+
 .breadcrumb {
   margin-top: 2rem;
 }
@@ -117,10 +127,10 @@ button.outline {
 button.transparent {
   background-color: transparent;
   border: 1px solid transparent;
+  border-color: transparent;
   color: transparent;
   padding: 5px 5px;
 }
-
 
 .centered{
   float: none;

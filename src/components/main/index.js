@@ -22,7 +22,7 @@ class Main extends Component {
   }
 
   _renderProtocolCard = item => (
-    <div key={item.id} className="col-lg-4 col-sm-12 spaced-div text-center">
+    <div key={item._id} className="col-lg-4 col-sm-12 spaced-div text-center">
       <Card shadow={0} style={{ width: '256px', background: '#3F51B5' }}>
         <CardTitle
           expand
@@ -34,7 +34,7 @@ class Main extends Component {
           {item.title}
         </CardTitle>
         <CardText style={{ alignItems: 'flex-start', color: '#fff' }}>
-          {item.text}
+          {item.description}
         </CardText>
         <CardActions border>
           <Button
@@ -47,14 +47,12 @@ class Main extends Component {
               borderWidth: 1,
               // boxShadow: '1px 1px 1px 1px #919E9E9E',
             }}
-            onClick={() =>
-              this.props.selectProtocol({
-                protocol: item.protocol,
-                id: item.id,
-              })
-            }
+            onClick={() => {
+              console.log(item);
+              this.props.selectProtocol(item);
+            }}
           >
-            <b>{`Escolher ${item.buttonLabel}`}</b>
+            <b>{`Escolher ${item.title}`}</b>
           </Button>
         </CardActions>
       </Card>
@@ -68,6 +66,7 @@ class Main extends Component {
     this.props.results.map(item => this._renderProtocolCard(item));
 
   render() {
+    const { user } = this.props;
     return (
       <Layout fixedHeader>
         <SelectPatientModal />
@@ -75,7 +74,9 @@ class Main extends Component {
           <Navigation>
             <Link to="/register_patient">Novo paciente</Link>
             <Link to="/patients_list">Ver pacientes</Link>
-            <Link to="/user_profile">Meu Perfil</Link>
+            <Link to="/user_profile">{`Perfil de ${
+              user ? user.name : ''
+            }`}</Link>
           </Navigation>
         </Header>
         <Content>

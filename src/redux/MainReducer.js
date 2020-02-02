@@ -1,6 +1,7 @@
 import * as ACTIONS from '../actions/MainTypes';
 
 const INITIAL_STATE = {
+  user: null,
   loadingMain: false,
   errorMain: null,
   showModal: false,
@@ -12,6 +13,8 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case ACTIONS.SET_USER:
+      return { ...state, user: action.payload };
     case ACTIONS.CHANGE_SEARCH_TEXT:
       return { ...state, searchText: action.payload };
     case ACTIONS.SET_RESULTS:

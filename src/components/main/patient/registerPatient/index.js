@@ -29,6 +29,7 @@ class RegisterPatient extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <Layout fixedHeader>
         <RegisterPatientModal />

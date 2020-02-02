@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Header, Layout, Content, Navigation } from 'react-mdl';
-import { Link } from 'react-router-dom';
+import { Header, Layout, Content, Navigation, Button } from 'react-mdl';
 import * as DISPATCHES from '../../../../actions/UserActions';
+import moment from 'moment';
 
 class PersonalProfile extends Component {
   componentDidMount() {
@@ -16,7 +16,12 @@ class PersonalProfile extends Component {
       <Layout fixedHeader>
         <Header title={<h5>Meu perfil</h5>}>
           <Navigation>
-            <Link to="/main">Principal</Link>
+            <button
+              className="button transparent"
+              onClick={() => this.props.history.goBack()}
+            >
+              Principal
+            </button>
           </Navigation>
         </Header>
         <Content>
@@ -43,20 +48,9 @@ class PersonalProfile extends Component {
                           <div className="text-profile">{`Tipo: ${user.type}`}</div>
                         </div>
                         <div className="row">
-                          <div className="text-profile">{`Telefone: ${user.phone}`}</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row border-div">
-                      <div className="col-12">
-                        <h5>Endereço</h5>
-                      </div>
-                      <div className="col-12">
-                        <div className="row">
-                          <div className="text-profile">{`Cidade: ${user.address.city}`}</div>
-                        </div>
-                        <div className="row">
-                          <div className="text-profile">{`Estado: ${user.address.state}`}</div>
+                          <div className="text-profile">{`Registrado em: ${moment(
+                            user.createdAt
+                          ).format('L')}`}</div>
                         </div>
                       </div>
                     </div>
